@@ -1,0 +1,12 @@
+.App {
+  width: 100vw;
+  min-height: 100vh;
+}
+.questionBox {
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20px;
+}
