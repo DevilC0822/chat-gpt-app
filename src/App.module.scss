@@ -1,12 +1,31 @@
 .App {
-  width: 100vw;
-  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.answerBox {
+  height: calc(100vh - 64px);
+  width: 60%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 20px;
+  overflow: scroll;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 .questionBox {
+  box-sizing: border-box;
+  width: 60%;
   display: flex;
-  justify-content: center;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 20px;
+  align-items: center;
+  height: 64px;
+}
+
+@media screen and (max-width: 768px) {
+  .questionBox {
+    width: 100%;
+    padding: 0 20px;
+  }
 }
