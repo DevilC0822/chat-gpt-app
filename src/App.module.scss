@@ -24,8 +24,12 @@
 }
 
 @media screen and (max-width: 768px) {
-  .questionBox {
+  :global .semi-avatar {
+    width: 36px;
+    height: 36px;
+  }
+  .answerBox, questionBox {
     width: 100%;
-    padding: 0 20px;
+    padding: 0 10px;
   }
 }
