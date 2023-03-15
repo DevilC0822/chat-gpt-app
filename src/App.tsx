@@ -19,6 +19,7 @@ function App() {
   })
 
   const [question, setQuestion] = useState('')
+  const [loading, setLoading] = useState(false)
   const [parentMessageId, setParentMessageId] = useState('')
   const [qaList, setQaList] = useState<IQaList[]>([])
 
@@ -30,6 +31,7 @@ function App() {
     send()
   }
   async function send() {
+    setLoading(true)
     // 我们提问的内容
     const message = question
     setQuestion('')
@@ -45,6 +47,7 @@ function App() {
       question,
       answer: marked(res.text),
     }])
+    setLoading(false)
     // 这个是上下文 id
     setParentMessageId(res.id)
   }
@@ -73,8 +76,8 @@ function App() {
         }
       </div>
       <div className={styles.questionBox}>
-        <Input placeholder={'输入你的指令'} value={question} onChange={(value) => { setQuestion(value) }} style={{ marginRight: 20 }}></Input>
-        <Button onClick={search}>search</Button>
+        <Input disabled={loading} placeholder={'输入你的指令'} value={question} onChange={(value) => { setQuestion(value) }} style={{ marginRight: 20 }}></Input>
+        <Button disabled={loading} onClick={search}>search</Button>
       </div>
     </div>
   )
